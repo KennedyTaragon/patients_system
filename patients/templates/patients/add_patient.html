@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Patient{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="mb-4">Add Patient</h1>
+            <a href="{% url 'list_patients' %}" class="btn btn-secondary mb-3">View Patient List</a>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form method="post" class="card p-4 shadow">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.first_name.id_for_label }}" class="form-label">{{ form.first_name.label }}</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.last_name.id_for_label }}" class="form-label">{{ form.last_name.label }}</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.contact.id_for_label }}" class="form-label">{{ form.contact.label }}</label>
+                    {{ form.contact }}
+                </div>
+                <button type="submit" class="btn btn-primary">Add Patient</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
