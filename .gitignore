@@ -31,6 +31,7 @@ db.sqlite3
 db.sqlite3-journal
 staticfiles/
 static/
+start.sh
 
 # Virtual environments
 .venv/
